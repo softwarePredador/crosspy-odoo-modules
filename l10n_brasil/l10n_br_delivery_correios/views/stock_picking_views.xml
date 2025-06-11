@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_pre_postahem_control" model="ir.actions.server">
+            <field name="name">Postagem Correios</field>
+            <field name="model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_view_types">form</field>
+            <field name="state">code</field>
+            <field name="code">
+    for record in records:
+        if record.carrier_id.delivery_type == 'correios':
+            record.carrier_id.correios_send_shipping(record)
+            </field>
+        </record>
+        <record id="view_picking_correios_label_form" model="ir.ui.view">
+            <field name="name">stock.picking.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock_delivery.view_picking_withcarrier_out_form"/>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_open_label_type']" position="after">
+                    <field name="is_correios" invisible="1"/>
+                    <button string="Etiquetas Correios" type="object" name="action_correios_get_label" invisible="not carrier_tracking_ref or not is_correios"/>
+                    <button string="Simple DANFE" type="object" name="do_print_simple_eletronic_document" invisible="is_invoice_pending"/>
+                </xpath>
+                <xpath expr="//button[@name='action_open_label_type']" position="attributes">
+                    <attribute name="invisible">is_correios</attribute>
+                </xpath>
+                <xpath expr="//field[@name='delivery_type']" position="after">
+                    <field name="correios_orders" groups="base.group_no_one"/>
+                    <field name="is_invoice_pending" groups="base.group_no_one"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="action_report_simple_edoc" model="ir.actions.report">
+            <field name="name">Simple Eletronic Document</field>
+            <field name="model">eletronic.document</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_br_delivery_correios.report_simple_eletronic_document</field>
+            <field name="report_file">l10n_br_delivery_correios.report_simple_eletronic_document</field>
+            <field name="print_report_name">'Simple DANFE - %s - %s' % (object.partner_id.name or '', object.name)</field>
+            <field name="paperformat_id" ref="l10n_br_delivery_correios.paper_format_simple_nfe"/>  <!-- Link the paper format -->
+            <field name="binding_model_id" ref="l10n_br_eletronic_document.model_eletronic_document"/>
+            <field name="binding_type">report</field>
+        </record>
+        <record id="action_report_declaracap_conteudo" model="ir.actions.report">
+            <field name="name">Content Statement</field>
+            <field name="model">stock.picking</field>
+            <field name="report_type">qweb-pdf</field>
+            <field name="report_name">l10n_br_delivery_correios.report_content_statement</field>
+            <field name="report_file">l10n_br_delivery_correios.report_content_statement</field>
+            <field name="print_report_name">'Content Statement - %s - %s' % (object.partner_id.name or '', object.name)</field>
+            <field name="paperformat_id" ref="l10n_br_delivery_correios.paper_format_simple_nfe"/>  <!-- Link the paper format -->
+            <field name="binding_model_id" ref="stock.model_stock_picking"/>
+            <field name="binding_type">report</field>
+        </record>
+    </data>
+</odoo>

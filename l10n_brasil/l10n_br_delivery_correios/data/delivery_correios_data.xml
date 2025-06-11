@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+<data noupdate="1">
+
+    <!-- Correios Product Packagings -->
+    <record id="correios_packaging_caixa1" model="stock.package.type">
+        <field name="name">Correios Caixa 1</field>
+        <field name="shipper_package_code">CX1</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="height">0.09</field>
+        <field name="width">0.18</field>
+        <field name="packaging_length">0.22</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa2" model="stock.package.type">
+        <field name="name">Correios Caixa 2</field>
+        <field name="shipper_package_code">CX2</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.28</field>
+        <field name="width">0.18</field>
+        <field name="height">0.09</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa3" model="stock.package.type">
+        <field name="name">Correios Caixa 3</field>
+        <field name="shipper_package_code">CX3</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.32</field>
+        <field name="width">0.23</field>
+        <field name="height">0.13</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa4" model="stock.package.type">
+        <field name="name">Correios Caixa 4</field>
+        <field name="shipper_package_code">CX4</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.36</field>
+        <field name="width">0.28</field>
+        <field name="height">0.15</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa5" model="stock.package.type">
+        <field name="name">Correios Caixa 5</field>
+        <field name="shipper_package_code">CX5</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.30</field>
+        <field name="width">0.30</field>
+        <field name="height">0.20</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa6" model="stock.package.type">
+        <field name="name">Correios Caixa 6</field>
+        <field name="shipper_package_code">CX6</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.40</field>
+        <field name="width">0.40</field>
+        <field name="height">0.30</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <record id="correios_packaging_caixa7" model="stock.package.type">
+        <field name="name">Correios Caixa 7</field>
+        <field name="shipper_package_code">CX7</field>
+        <field name="package_carrier_type">correios</field>
+        <field name="packaging_length">0.50</field>
+        <field name="width">0.40</field>
+        <field name="height">0.40</field>
+        <field name="max_weight">10.0</field>
+    </record>
+
+    <!-- Correios Commercial Invoice Sequence -->
+    <record id="correios_commercial_invoice_seq" model="ir.sequence">
+        <field name="name">Correios Commercial Invoice</field>
+        <field name="code">l10n_br_delivery_correios.commercial_invoice</field>
+        <field name="prefix">CI</field>
+        <field name="padding">5</field>
+    </record>
+
+<!--
+medidas de las cajas:
+caixa 1= 22x17x9 cm
+caixa 2= 28x18x9 cm
+caixa 3= 32x23x13 cm
+caixa 4= 36x28x15 cm
+caixa 5= 30x30x20 cm
+caixa 6= 40x40x30 cm
+caixa 7= 50x40x40 cm
+-->
+
+
+</data>
+</odoo>

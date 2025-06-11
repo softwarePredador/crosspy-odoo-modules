@@ -1,0 +1,10 @@
+<Sdt_ProcessarpsIn>
+    <Login>
+        <CodigoUsuario>{{ rps.codigoUsuario }}</CodigoUsuario>
+        <CodigoContribuinte>{{ rps.codigoContribuiente }}</CodigoContribuinte>
+    </Login>
+    <SDTRPS>
+            {% include 'Rps.xml' %}
+    </SDTRPS>
+</Sdt_ProcessarpsIn>
+

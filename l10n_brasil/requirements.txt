@@ -1,0 +1,11 @@
+cryptography==37.0.0
+erpbrasil.base
+certifi
+phonenumbers
+email_validator
+iugu
+pytrustnfe3
+brazilcep
+html2text
+signxml==3.2.2
+lxml_html_clean

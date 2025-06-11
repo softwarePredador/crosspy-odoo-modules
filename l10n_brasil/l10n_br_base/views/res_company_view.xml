@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <!--
+    Views: res.company
+    -->
+    <record id="l10n_br_base_res_company_form" model="ir.ui.view">
+        <field name="name">l10n_br_base.res.company.form</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='vat']" position="after">
+                <field
+                    name="legal_name"
+                    placeholder="Legal Name..."
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                />
+                <!-- <field
+                    name="cnpj_cpf"
+                    placeholder="CNPJ..."
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                /> -->
+                <field
+                    name="inscr_est"
+                    placeholder="State Tax Number..."
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                />
+                <field
+                    name="inscr_mun"
+                    placeholder="Municipal Tax Number..."
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                />
+                <field
+                    name="suframa"
+                    placeholder="Suframa"
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                />
+                <field
+                    name="state_tax_number_ids"
+                    invisible="[('country_id', '!=', %(base.br)d)]"
+                >
+                    <tree editable="bottom">
+                        <field name="partner_id" invisible="1" />
+                        <field name="inscr_est" />
+                        <field
+                            name="state_id"
+                            domain="[('country_id', '=', %(base.br)d)]"
+                            create="False"
+                            edit="False"
+                        />
+                    </tree>
+                </field>
+            </xpath> 
+            <xpath expr="//field[@name='phone']/parent::group" position="after">
+                <group string="Certificado Digital">
+                    <field name="l10n_br_certificate" />
+                    <field name="l10n_br_cert_password" password="True" />
+                    <field name="l10n_br_cert_state" />
+                    <field name="l10n_br_cert_expire_date" />
+                    <field name="l10n_br_cert_information" />
+                </group>
+            </xpath>
+            <!-- TODO: Na v12 era desnecessario incluir o codigo abaixo para
+                  tornar invisivel o campo City/Char e incluir City_id/m2o,
+                  teria outra forma de fazer isso? -->
+            <xpath expr="//field[@name='state_id']" position="after">
+                <field name="country_enforce_cities" invisible="1"/>
+                <field
+                    name="city_id"
+                    class="o_address_city"
+                    placeholder="City"
+                    options='{"no_open": True}'
+                    invisible="country_enforce_cities"
+                />
+            </xpath>
+            <xpath expr="//field[@name='city']" position="attributes">
+                <attribute name="invisible">not country_enforce_cities</attribute>
+            </xpath>
+        </field>
+    </record>
+
+    <!-- <record id="l10n_br_base_res_company_tree" model="ir.ui.view">
+        <field name="name">l10n_br_base.res.company.tree</field>
+        <field name="model">res.company</field>
+        <field name="inherit_id" ref="base.view_company_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="cnpj_cpf" />
+            </field>
+        </field>
+    </record> -->
+
+</odoo>

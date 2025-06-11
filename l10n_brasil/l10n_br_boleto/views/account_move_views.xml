@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="inherit_view_account_move" model="ir.ui.view">
+        <field name="name">account.move.view.form.inherit</field>
+        <field name="model">account.move</field>
+        <field name="inherit_id" ref="account.view_move_form" />
+        <field name="arch" type="xml">
+            <header>
+                <button name="bank_slip_step" string="Gerar Boleto(s)" type="object" class="oe_highlight" invisible="not has_bank_slip"/>
+            </header>
+            <xpath expr="//notebook" position="inside">
+                <page string="Boleto" invisible="move_type not in ('out_invoice', 'out_refund') or not has_bank_slip">
+                   <field name="bank_slip_ids" nolabel="1" readonly="0" default_order='due_date'>
+                        <tree>
+                            <field name="id" invisible="1" />
+                            <field name="status" />
+                            <field name="due_date" />
+                            <field name="value" widget="monetary" />
+                            <field name="pdf" filename="pdf_name" widget="binary" />
+                            <field name="pdf_name" invisible="1" />
+                            <button name="discard_bank_slip" string=" Cancelar" confirm="Tem certeza que deseja cancelar esse boleto?" type="object" class="fa fa-ban" context="{'active_ids': id}" />
+                            <field name="shipping_file" filename="shipping_file_name" widget="binary" />
+                            <field name="shipping_file_name" invisible="1"/>
+                        </tree>
+                    </field>
+                </page>
+            </xpath>
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="has_bank_slip"/>
+                <field name="state" groups="base.group_no_one"/>
+                <field name="move_type" groups="base.group_no_one"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

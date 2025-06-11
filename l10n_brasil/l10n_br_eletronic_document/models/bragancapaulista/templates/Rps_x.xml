@@ -1,0 +1,208 @@
+<Ano>2014</Ano>
+<Mes>01</Mes>
+<CPFCNPJ>12345678912345</CPFCNPJ>
+<DTIni>01/01/2014</DTIni>
+<TipoTrib>N</TipoTrib>
+<DtAdeSN>20/10/2001</DtAdeSN>
+<AlqIssSN_IP>1,02</AlqIssSN_IP>
+<Versao>2.00</Versao>
+
+<Rps>
+    <InfRps xmlns="http://www.abrasf.org.br/nfse.xsd" Id="rps:{{ rps.numero }}">
+        <IdentificacaoRps>
+            <Numero>{{ rps.numero }}</Numero>
+            <Serie>{{ rps.serie }}</Serie>
+            <Tipo>{{ rps.tipo_rps }}</Tipo>
+        </IdentificacaoRps>
+        <DataEmissao>{{ rps.data_emissao }}</DataEmissao>
+        <NaturezaOperacao>{{ rps.natureza_operacao }}</NaturezaOperacao>
+        <RegimeEspecialTributacao>{{ rps.regime_tributacao }}</RegimeEspecialTributacao>
+        <OptanteSimplesNacional>{{ rps.optante_simples }}</OptanteSimplesNacional>
+        <IncentivadorCultural>{{ rps.incentivador_cultural }}</IncentivadorCultural>
+        <Status>{{ rps.status }}</Status>
+        <RpsSubstituido>
+            <Numero>{{ rps.numero_substituido }}</Numero>
+            <Serie>{{ rps.serie_substituido }}</Serie>
+            <Tipo>{{ rps.tipo_substituido }}</Tipo>
+        </RpsSubstituido>
+        <Servico>
+            <Valores>
+                <ValorServicos>{{ rps.valor_servico }}</ValorServicos>
+                <ValorDeducoes>{{ rps.valor_deducao }}</ValorDeducoes>
+                <ValorPis>{{ rps.valor_pis }}</ValorPis>
+                <ValorCofins>{{ rps.valor_cofins }}</ValorCofins>
+                <ValorInss>{{ rps.valor_inss }}</ValorInss>
+                <ValorIr>{{ rps.valor_ir }}</ValorIr>
+                <ValorCsll>{{ rps.valor_csll }}</ValorCsll>
+                <IssRetido>{{ rps.iss_retido }}</IssRetido>
+                <ValorIss>{{ rps.valor_iss }}</ValorIss>
+                <ValorIssRetido>{{ rps.valor_iss_retido }}</ValorIssRetido>
+                <OutrasRetencoes>{{ rps.outras_retencoes }}</OutrasRetencoes>
+                <BaseCalculo>{{ rps.base_calculo }}</BaseCalculo>
+                <Aliquota>{{ rps.aliquota_issqn }}</Aliquota>
+                <ValorLiquidoNfse>{{ rps.valor_liquido_nfse }}</ValorLiquidoNfse>
+                <DescontoIncondicionado>{{ rps.desconto_incondicionado }}</DescontoIncondicionado>
+                <DescontoCondicionado>{{ rps.desconto_condicionado }}</DescontoCondicionado>
+            </Valores>
+            <ItemListaServico>{{ rps.codigo_servico }}</ItemListaServico>
+            <CodigoCnae>{{ rps.cnae_servico }}</CodigoCnae>
+            <CodigoTributacaoMunicipio>{{ rps.codigo_tributacao_municipio }}</CodigoTributacaoMunicipio>
+            <Discriminacao>{{ rps.descricao }}</Discriminacao>
+            <CodigoMunicipio>{{ rps.codigo_municipio }}</CodigoMunicipio>
+        </Servico>
+        <Prestador>
+            <Cnpj>{{ rps.prestador.cnpj }}</Cnpj>
+            <InscricaoMunicipal>{{ rps.prestador.inscricao_municipal }}</InscricaoMunicipal>
+        </Prestador>
+        <Tomador>
+            <IdentificacaoTomador>
+                <CpfCnpj>
+                    {% if rps.tomador.cnpj_cpf|length == 14  %}
+                    <Cnpj>{{ rps.tomador.cnpj_cpf }}</Cnpj>
+                    {% endif %}
+                    {% if rps.tomador.cnpj_cpf|length == 11  %}
+                    <Cpf>{{ rps.tomador.cnpj_cpf }}</Cpf>
+                    {% endif %}
+                </CpfCnpj>
+                <InscricaoMunicipal>{{ rps.tomador.inscricao_municipal }}</InscricaoMunicipal>
+            </IdentificacaoTomador>
+            <RazaoSocial>{{ rps.tomador.razao_social }}</RazaoSocial>
+            <Endereco>
+                <Endereco>{{ rps.tomador.logradouro }}</Endereco>
+                <Numero>{{ rps.tomador.numero }}</Numero>
+                <Complemento>{{ rps.tomador.complemento }}</Complemento>
+                <Bairro>{{ rps.tomador.bairro }}</Bairro>
+                <CodigoMunicipio>{{ rps.tomador.cidade }}</CodigoMunicipio>
+                <Uf>{{ rps.tomador.uf }}</Uf>
+                <Cep>{{ rps.tomador.cep }}</Cep>
+            </Endereco>
+            <Contato>
+                <Telefone>{{ rps.tomador.telefone }}</Telefone>
+                <Email>{{ rps.tomador.email }}</Email>
+            </Contato>
+        </Tomador>
+        {% if rps.intermediario is defined -%}
+        <IntermediarioServico>
+            <RazaoSocial>{{ rps.intermediario.razao_social }}</RazaoSocial>
+            <CpfCnpj>
+                <Cnpj>{{ rps.intermediario.cnpj }}</Cnpj>
+            </CpfCnpj>
+            <InscricaoMunicipal>{{ rps.intermediario.inscricao_municipal }}</InscricaoMunicipal>
+        </IntermediarioServico>
+        {% endif %}
+        {% if rps.construcao_civil is defined -%}
+        <ContrucaoCivil>
+            <CodigoObra>{{ rps.construcao_civil.codigo_obra }}</CodigoObra>
+            <Art>{{ rps.construcao_civil.art }}</Art>
+        </ContrucaoCivil>
+        {% endif %}
+    </InfRps>
+</Rps>
+
+
+
+
+
+
+https://nfe.etransparencia.com.br/sp.bragancapaulista/webservice/aws_nfe.aspx?wsdl
+
+<x:Envelope
+    xmlns:x="http://schemas.xmlsoap.org/soap/envelope/"
+    xmlns:nfe="NFe">
+    <x:Header/>
+    <x:Body>
+        <nfe:ws_nfe.PROCESSARPS>
+            <nfe:Sdt_processarpsin>
+                <nfe:Login></nfe:Login>
+                <nfe:SDTRPS></nfe:SDTRPS>
+            </nfe:Sdt_processarpsin>
+        </nfe:ws_nfe.PROCESSARPS>
+    </x:Body>
+</x:Envelope>
+
+
+
+
+
+
+
+    <SDTRPS>
+        <Ano>2014</Ano>
+        <Mes>01</Mes>
+        <CPFCNPJ>12345678912345</CPFCNPJ>
+        <DTIni>01/01/2014</DTIni>
+        <TipoTrib>N</TipoTrib>
+        <DtAdeSN>20/10/2001</DtAdeSN>
+        <AlqIssSN_IP>1,02</AlqIssSN_IP>
+        <Versao>2.00</Versao>
+        <Reg20>
+            <Reg20Item>
+                <TipoNFS>NFS</TipoNFS>
+                <NumRps>999999999</NumRps>
+                <SerRps>XXX</SerRps>
+                <DtEmi>20/01/2014</DtEmi>
+                <RetFonte>NAO</RetFonte>
+                <CodSrv>NN.NN</CodSrv>
+                <DiscrSrv>DESCRICAO</DiscrSrv>
+                <VlNFS>1000,00</VlNFS>
+                <VlDed>0,00</VlDed>
+                <DiscrDed>DESCRICAO</DiscrDed>
+                <VlBasCalc>1000,00</VlBasCalc>
+                <AlqIss>2,00</AlqIss>
+                <VlIss>20,00</VlIss>
+                <VlIssRet>0,00</VlIssRet>
+                <CpfCnpTom>12332165498</CpfCnpTom>
+                <RazSocTom>TOMADOR TESTE</RazSocTom>
+                <TipoLogtom>RUA</TipoLogtom>
+                <LogTom>JOSE FONSECA</LogTom>
+                <NumEndTom>111</NumEndTom>
+                <ComplEndTom>COMPLEMENTO DO ENDERECO.</ComplEndTom>
+                <BairroTom>CENTRO</BairroTom>
+                <MunTom>CIDADE</MunTom>
+                <SiglaUFTom>SP</SiglaUFTom>
+                <CepTom>12345563</CepTom>
+                <Telefone>16789463521</Telefone>
+                <InscricaoMunicipal>XXXXXXXXXXXXXXXXXXXX</InscricaoMunicipal>
+                <TipoLogLocPre>XXX</TipoLogLocPre>
+                <LogLocPre>XXXX...</LogLocPre>
+                <NumEndLocPre>XXXXX..</NumEndLocPre>
+                <ComplEndLocPre>XXXXX...</ComplEndLocPre>
+                <BairroLocPre>XXXXX...</BairroLocPre>
+                <MunLocPre>XXXXX...</MunLocPre>
+                <SiglaUFLocpre>XX</SiglaUFLocpre>
+                <CepLocPre>NNNNNNNN</CepLocPre>
+                <Email1>email1@email1.com</Email1>
+                <Email2 />
+                <Email3 />
+                <Reg30>
+                    <Reg30Item>
+                        <TributoSigla>INSS</TributoSigla>
+                        <TributoAliquota>1,00</TributoAliquota>
+                        <TributoValor>10,00</TributoValor>
+                    </Reg30Item>
+                    <Reg30Item>
+                        <TributoSigla>AproxGeral </TributoSigla>
+                        <TributoAliquota>10,00</TributoAliquota>
+                        <TributoValor>100,00</TributoValor>
+                    </Reg30Item>
+                </Reg30>
+                <Reg40>
+                    <Reg40Item>
+                        <SiglaCpoAdc>DADOSADICIONAIS</SiglaCpoAdc>
+                        <ConteudoCpoAdc>Obs a ser impressa na nota em quadro de
+                        informações adicionais</ConteudoCpoAdc>
+                    </Reg40Item>
+                </Reg40>
+            </Reg20Item>
+        </Reg20>
+        <Reg90>
+            <QtdRegNormal>1</QtdRegNormal>
+            <ValorNFS>1000,00</ValorNFS>
+            <ValorISS>10,00</ValorISS>
+            <ValorIssRetTom>0,00</ValorIssRetTom>
+            <QtdReg30>2</QtdReg30>
+            <ValorTributos>0,10</ValorTributos>
+            <QtdReg40>1</QtdReg40>
+        </Reg90>
+    </SDTRPS>
+</Sdt_ProcessarpsIn>

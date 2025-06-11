@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="paper_format_simple_nfe" model="report.paperformat">
+            <field name="name">Simple NFe Label Format</field>
+            <field name="default" eval="False"/>  <!-- Set to True if you want it as default -->
+            <field name="format">A6</field>  <!-- Standard formats: A4, A5, Letter, etc. -->
+            <field name="orientation">Portrait</field>  <!-- Options: Portrait or Landscape -->
+            <field name="margin_top">0</field>  <!-- Margins in mm -->
+            <field name="margin_bottom">0</field>
+            <field name="margin_left">0</field>
+            <field name="margin_right">0</field>
+        </record>
+
+
+        <!-- <record id="paperformat_euro" model="report.paperformat">
+            <field name="name">A4</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">40</field>
+            <field name="margin_bottom">32</field>
+            <field name="margin_left">7</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record> -->
+
+        <template id="report_simple_eletronic_document">
+    <t t-call="web.basic_layout">
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <t t-foreach="docs" t-as="o">
+
+            <!-- Línea divisoria inicio-->
+            <div class="row zero_min_height">
+                <div class="col-12" style="margin-top: 30px;">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <!-- Línea divisoria fin-->               
+            <div class="row">
+                <div class="col-12 text-center" style="font-size: 0.7em">
+                    <p><strong>DANFE Simplificado - Etiqueta</strong></p>
+                </div>
+            </div>
+            <!-- Línea divisoria inicio-->
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <!-- Línea divisoria fin-->        
+
+            <div class="row">
+                <div class="col-1"/>
+                <div class="col-4">
+                    <img class="mt-2" t-if="company.logo" t-att-src="image_data_uri(company.logo)" style="height: 40px;" alt="Logo"/>
+                </div>
+                <div class="col-6 mb-2 mt-2" name="company_address" style="font-size: 0.7em">
+                    <ul class="list-unstyled" name="company_address_list">
+                        <li t-if="company.is_company_details_empty"><span t-field="company.partner_id">
+                            <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 w-100 opacity-75 text-muted text-center">
+                                <strong>Company address block</strong>
+                                <div>Contains the company address.</div>
+                            </div>
+                        </span></li>
+                        <li t-else="">
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.legal_name"/>
+                            <br/>
+                            <span>CNPJ: </span>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.vat"/>
+                            <span>IE: </span>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.inscr_est"/>
+                            <br/>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.street"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.street2"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.district"/>
+                            <span t-att-style="'line-height: 10px;'" t-esc="'{} - {}'.format(company.partner_id.city_id and company.partner_id.city_id.name or company.city, company.partner_id.state_id.code)"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        
+        
+        
+            <div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-5"/>
+                <div class="col-6 mb-2 mt-2" name="partner_address" style="font-size: 0.7em">
+                    <ul class="list-unstyled" name="partner_address_list">
+                        <li>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.legal_name"/>
+                            <br/>
+                            <span>CNPJ/CPF/ID Estrangeiro: </span>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.vat"/>
+                            <span>IE: </span>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.inscr_est"/>
+                            <br/>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.street"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.street2"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.district"/>
+                            <span t-att-style="'line-height: 10px;'" t-esc="'{} - {}'.format(o.partner_id.city_id and o.partner_id.city_id.name or o.partner_id.city, o.partner_id.state_id.code)"/>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <t t-set="forced_vat" t-value="o.fiscal_position_id.foreign_vat"/> <!-- So that it appears in the footer of the report instead of the company VAT if it's set -->
+            <!-- Línea divisoria inicio-->
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <!-- Línea divisoria fin--> 
+            <t t-if="o.tipo_operacao=='saida'" t-set="tipo_operacao" t-value="'1 - Saída'"/>
+            <t t-else="" t-set="tipo_operacao" t-value="'0 - Entrada'"/>
+            <div class="row justify-content-end mb6">
+                <div name="chave_nfe" style="text-align: center" class="mt-2 mb-2">
+                    <div t-field="o.chave_nfe" t-options="{'widget': 'barcode', 'width': 600, 'height': 100, 'img_style': 'width:400px;height:50px;'}">
+                        <div class="bg-light border-1 rounded d-flex flex-column align-items-center justify-content-center p-3 opacity-75 text-muted text-center">
+                            (document barcode)
+                        </div>
+                    </div>
+                    <div t-if="o.chave_nfe" t-field="o.chave_nfe" t-att-style="'font-size: 0.7em'"/>
+                    <div t-att-style="'font-size: 0.7em'">
+                        <span>Protocolo de autorização de uso</span>
+                        <br/>
+                        <span t-field="o.protocolo_nfe"></span>
+                    </div>
+                    <div t-att-style="'font-size: 0.7em'">
+                        <span>TIPO: </span>
+                        <span t-esc="tipo_operacao"/>
+                        <span> | Nº NF-e: </span>
+                        <span t-field="o.numero"/>
+                        <span> | Série: </span>
+                        <span t-field="o.serie_documento"/>
+                    </div>
+                    <div t-att-style="'font-size: 0.7em'">
+                        <span>Data de emissão: </span>
+                        <span t-field="o.data_emissao"/>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria inicio-->
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <!-- Línea divisoria fin--> 
+            
+            <div class="row">
+                <div class="offset-col-6 col-6" name="no_shipping">
+                    <t t-set="address">
+                        <address class="mb-0" t-field="o.partner_id" t-options="{'widget': 'contact', 'fields': ['address', 'name'], 'no_marker': True}"/>
+                        <div t-if="o.partner_id.vat" id="partner_vat_no_shipping">
+                            <t t-if="o.company_id.account_fiscal_country_id.vat_label" t-out="o.company_id.account_fiscal_country_id.vat_label" id="inv_tax_id_label"/>
+                            <t t-else="">Tax ID</t>: <span t-field="o.partner_id.vat"/>
+                        </div>
+                    </t>
+                </div>
+            </div>
+            <div class="oe_structure"/>
+            <table class="table table-sm o_main_table table-borderless" name="document_line_ids">
+                <thead style="font-size: 0.7em">
+                    <tr>
+                        <th name="th_description" class="text-start"><span>Description</span></th>
+                        <!--th name="th_quantity" class="text-end"><span>Quantity</span></th>
+                        <th name="th_priceunit" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Unit Price</span></th-->
+                        <th name="th_subtotal" class="text-end"><span>Amount</span></th>
+                    </tr>
+                </thead>
+                <tbody class="invoice_tbody" style="font-size: 0.7em">
+                    <t t-set="current_subtotal" t-value="0"/>
+                    <t t-set="current_total" t-value="0"/>
+                    <t t-foreach="o.document_line_ids" t-as="line">
+                        <tr style="margin-bottom: 0; padding-bottom: 0">
+                            <td style="padding: 1px 0px;" name="account_invoice_line_name">
+                                <span t-if="line.name" t-field="line.name" t-options="{'widget': 'text'}"/>
+                                <!-- Código nuevo inicio-->
+                                <span> - </span>
+                                <span t-field="line.quantidade"/>
+                                <span> UN X </span>
+                                <span t-field="line.preco_unitario" class="text-nowrap"/>
+                                <!-- Código nuevo fin-->
+                            </td>
+                            <!--td name="td_quantity" class="text-end">
+                                <span t-field="line.quantidade">3.00</span>
+                                <span t-field="line.product_id.uom_id" groups="uom.group_uom">units</span>
+                            </td>
+                            <td name="td_price_unit" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <span class="text-nowrap" t-field="line.preco_unitario">9.00</span>
+                            </td-->
+                            <!-- Código nuevo inicio-->
+                            <td style="padding: 1px 0px;" name="td_amount" class="text-end">
+                                <span class="text-nowrap" t-field="line.valor_bruto"/>
+                            </td>
+                            <!-- Código nuevo fin-->
+                        </tr>
+                    </t>
+                </tbody>
+            </table>
+            <!-- Código nuevo inicio-->
+            <t t-set="suma_impuestos" t-value="o.valor_icms + o.valor_ipi + o.pis_valor + o.cofins_valor"/>
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12" style="font-size: 0.7em">
+                    <span>VALOR BRUTO:</span>
+                    <span style="float: right" t-field="o.valor_bruto"/>
+                    <br/>                    
+                    <span>SUMA DE IMPOSTOS:</span>
+                    <span style="float: right" t-esc="suma_impuestos" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/>
+                    <br/>
+                    <strong>VALOR DA NOTA: 
+                    <span style="float: right" t-esc="suma_impuestos + o.valor_bruto" t-options="{'widget': 'monetary', 'display_currency': o.currency_id}"/></strong>
+                </div>
+            </div>
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <!-- Código nuevo fin-->
+            
+            <div class="row justify-content-end mb6">
+                <div name="informacoes_complementares" style="text-align: center" class="mt-2 mb-2">
+                    <div t-field="o.informacoes_complementares" t-att-style="'font-size: 0.7em'"/>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria inicio-->
+            <div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            
+            <!-- Línea divisoria fin--> 
+         </t>
+    </t>
+        </template>
+    </data>
+</odoo>

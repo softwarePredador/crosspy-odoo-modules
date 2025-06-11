@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="view_picking_invoice_form" model="ir.ui.view">
+            <field name="name">stock.picking.invoice.form</field>
+            <field name="model">stock.picking</field>
+            <field name="inherit_id" ref="stock.view_picking_form"/>
+            <field eval="12" name="priority"/>
+            <field name="arch" type="xml">
+                <xpath expr="//button[@name='action_open_label_type']" position="after">
+                    <field name="is_invoice_pending" invisible="True"/>
+                    <button string="Create Invoice" 
+                        type="object" 
+                        name="action_invoice_picking" 
+                        context="{'invoice_approve': True, 'edoc_approve':True}"
+                        invisible="not is_invoice_pending"
+                    />
+                </xpath>
+                <xpath expr="//header" position="after">
+                    <field name="invoice_not_approved_ids" invisible="1"/>
+                    <field name="edoc_not_authorized_ids" invisible="1"/>
+                    <field name="order_with_pending_invoice_ids" invisible="1"/>
+                    <div class="alert alert-warning" role="alert"
+                        invisible="is_invoice_pending or not order_with_pending_invoice_ids">
+                        Warning: this picking might be has sale order not invoiced
+                        <button name="open_sale_order_invoice_pending"
+                                type="object"
+                                string="one of those order"
+                                class="btn btn-link p-0"
+                        />
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                        invisible="is_invoice_pending or not invoice_not_approved_ids">
+                        Warning: this picking might be has not approved invoice
+                        <button name="open_invoice_not_approved_ids"
+                                type="object"
+                                string="one of those bills"
+                                class="btn btn-link p-0"
+                        />
+                    </div>
+                    <div class="alert alert-warning" role="alert"
+                        invisible="is_invoice_pending or not edoc_not_authorized_ids">
+                        Warning: this picking might be has not authorized
+                        <button name="open_edoc_not_autorized_ids"
+                                type="object"
+                                string="one of those electronic document"
+                                class="btn btn-link p-0"
+                        />
+                    </div>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
+</odoo>

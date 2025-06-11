@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_generate_boleto_pdf" model="ir.actions.server">
+            <field name="name">Generate Bank Slip PDF</field>
+            <field name='type'>ir.actions.server</field>
+            <field name="state">code</field>
+            <field name="model_id" ref="l10n_br_boleto.model_bank_slip"/>
+            <field name="binding_model_id" ref="l10n_br_boleto.model_bank_slip"/>
+            <field name="code">
+                records.make_pdf()
+            </field>
+        </record>
+
+        <record id="bank_slip_view_form" model="ir.ui.view">
+            <field name="name">bank.slip.view.form</field>
+            <field name="model">bank.slip</field>
+            <field name="arch" type="xml">
+                <form delete="0" duplicate="0" create="0" edit="0">
+                    <header>
+                        <button name="download_pdf" string="Visualizar PDF" type="object" class="oe_highlight" invisible="[('status', 'not in', ('EMITIDO', 'REGISTRADO', 'LIQUIDADO'))]"/>
+                        <button name="discard_bank_slip" string="Excluir Boleto" confirm="Tem certeza que deseja excluir esse boleto? Você irá poder gerar outro boleto para a fatura, está opção não gera um arquivo de remessa para o Banco!" type="object" class="btn btn-secondary" context="{'active_ids': id}" invisible="[('status', 'not in', ('EMITIDO', 'FALHA', 'REJEITADO'))]" groups="account.group_account_invoice"/>
+                        <button name="action_update_bank_slip" string="Alterar Boleto" type="object" class="btn btn-secondary" context="{'active_ids': id}" invisible="[('status', '!=', 'REGISTRADO')]" groups="account.group_account_invoice"/>
+                        <field name="status" widget="statusbar" statusbar_visible="EMITIDO,REGISTRADO,LIQUIDADO" invisible="[('status', 'not in', ('REGISTRADO', 'LIQUIDADO'))]"/>
+                        <field name="status" widget="statusbar" statusbar_visible="EMITIDO,REIJADO,BAIXADO" invisible="[('status', 'not in', ('REJEITADO', 'BAIXADO'))]"/>
+                        <field name="status" widget="statusbar" statusbar_visible="SALVO,FALHA" invisible="[('status', 'not in', ('SALVO', 'FALHA'))]"/>
+                        <field name="status" widget="statusbar" statusbar_visible="EMITIDO" invisible="[('status', '!=', ('EMITIDO'))]" clickable="True"/>
+                    </header>
+                    <sheet>
+                        <field name="active" invisible="1"/>
+                        <widget name="web_ribbon" title="Archived" bg_color="bg-danger" invisible="[('active', '=', True)]"/>
+                        <div class="oe_button_box" name="button_box">
+                            <button type="object" name="action_view_invoice" class="oe_stat_button" icon="fa-pencil-square-o">
+                                <field name="invoice_name" widget="statinfo" />
+                                <field name='invoice' invisible="1"/>
+                            </button>
+                        </div>
+                        <group>
+                            <group name="bank_slip_info">
+                                <field name="customer" />
+                                <field name="invoice_line_id" />
+                                <field name="due_date" />
+                                <field name="value" widget="monetary" />
+                                <field name="titulo_nosso_numero" />
+                            </group>
+                            <group name="bank_slip_extra">
+                                <field name="company_id" groups="base.group_multi_company" />
+                                <field name="id_integracao" />
+                                <field name="shipping_file" filename="shipping_file_name" widget="binary" />
+                                <field name="shipping_file_name" invisible="1"/>
+                                <field name="date_updated" />
+                            </group>
+                        </group>
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" />
+                        <field name="activity_ids" />
+                        <field name="message_ids" />
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="bank_slip_view_tree" model="ir.ui.view">
+            <field name="name">bank.slip.view.tree</field>
+            <field name="model">bank.slip</field>
+            <field name="arch" type="xml">
+                <tree create="false" default_order='create_date' delete="0">
+                    <header>
+                        <button name="action_generate_boleto" type="object" string="Generate Boleto"
+                            groups="account.group_account_user" />
+                        <button name="%(action_open_bank_slip_sync_wizard)d" 
+                            type="action" 
+                            string="Syncro"
+                            class="btn-primary"
+                            groups="account.group_account_user" 
+                            display="always"/>
+                        <button name="download_bank_slip_shipping" type="object" string="Generate Shipping File"
+                            groups="account.group_account_user" />
+                    </header>
+                    <field name="customer" />
+                    <field name="invoice" />
+                    <field name="invoice_name" />
+                    <field name="titulo_nosso_numero" />
+                    <field name="status" widget="badge" decoration-warning="status in ('SALVO', 'BAIXADO', 'REGISTRADO')" decoration-info="status in ('EMITIDO',)" decoration-success="status in ('LIQUIDADO',)" decoration-danger="status in ('FALHA', 'REJEITADO')" decoration-bf="status == 'PENDENTE_RETENTATIVA'" />
+                    <field name="due_date" />
+                    <field name="value" />
+                    <field name="pdf" filename="pdf_name" widget="binary" />
+                    <field name="pdf_name" invisible="1" />
+                    <field name="reconciled" />
+                    <field name="shipping_file" filename="shipping_file_name" widget="binary" />
+                    <field name="shipping_file_name" invisible="1"/>
+                    <field name="company_id" groups="base.group_multi_company" />
+                </tree>
+            </field>
+        </record>
+
+        <record id="bank_slip_view_search" model="ir.ui.view">
+            <field name="name">bank.slip.view.search</field>
+            <field name="model">bank.slip</field>
+            <field name="arch" type="xml">
+                <search>
+                    <field name="customer" filter_domain="['|', '|', ('customer', 'ilike', self), ('invoice_name', 'ilike', self), ('titulo_nosso_numero', 'ilike', self)]"/>
+                    <field name="invoice" />
+                    <field name="invoice_name" />
+                    <field name="id_integracao" />
+                    <field name="status" />
+                    <separator />
+                    <filter name="salvo" string="Salvo" domain="[('status', '=', 'SALVO')]" />
+                    <filter name="baixado" string="Baixado" domain="[('status', '=', 'BAIXADO')]" />
+                    <filter name="registrado" string="Registrado" domain="[('status', '=', 'REGISTRADO')]" />
+                    <separator />
+                    <filter name="emitido" string="Emitido" domain="[('status', '=', 'EMITIDO')]" />
+                    <filter name="liquidado" string="Liquidado" domain="[('status', '=', 'LIQUIDADO')]" />
+                    <separator />
+                    <filter name="falha" string="Falha" domain="[('status', '=', 'FALHA')]" />
+                    <filter name="rejeitado" string="Rejeitado" domain="[('status', '=', 'REJEITADO')]" />
+                    <separator />
+                    <filter name="arquivo_remessa" string="Contém arquivo de remessa" domain="[('shipping_file_id', '!=', False)]" />
+                    <filter string="Archived" name="inactive" domain="[('active', '=', False)]"/>
+                    <separator />
+                    <group expand="0" string="Group By...">
+                        <filter name="fatura" string="Fatura" domain="[]" context="{'group_by': 'invoice'}" />
+                        <filter name="cliente" string="Cliente" domain="[]" context="{'group_by': 'customer'}" />
+                        <filter name="status" string="Status" domain="[]" context="{'group_by': 'status'}" />
+                    </group>
+                </search>
+            </field>
+        </record>
+
+       <record id="view_slip_shipping_tree" model="ir.ui.view">
+            <field name="name">bank.slip.shipping.tree</field>
+            <field name="model">bank.slip.shipping</field>
+            <field name="arch" type="xml">
+                <tree default_order='create_date' delete="0">
+                    <field name="name" />
+                    <field name="file_date" />
+                    <field name="shipping_file" filename="shipping_file_name" widget="binary" />
+                    <field name="shipping_file_name" invisible="1"/>
+                    <field name="state" widget="badge" />
+                    <!-- <field name="state" widget="badge" decoration-info="status in ('SALVO', 'BAIXADO', 'REGISTRADO')" decoration-success="status in ('EMITIDO', 'LIQUIDADO')" decoration-danger="status in ('FALHA', 'REJEITADO')" decoration-warning="status == 'PENDENTE_RETENTATIVA'" /> -->
+                </tree>
+            </field>
+        </record>
+        
+        <record id="view_slip_shipping_form" model="ir.ui.view">
+            <field name="name">bank.slip.shipping.view.form</field>
+            <field name="model">bank.slip.shipping</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button string="Process Shipment" name="action_process_shipment" type="object" 
+                                invisible="[('state', '!=', 'draft')]"/>
+                    </header>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name" invisible="[('name', '=', False)]"/>
+                                <field name="file_date" invisible="[('name', '=', False)]"/>
+                                <field name="shipping_file" filename="shipping_file_name" widget="binary" readonly="0" force_save="1"/>
+                                <field name="shipping_file_name" invisible="1" force_save="1"/>
+                                <field name="company_id" invisible="1"/>
+                                <field name="company_partner_id" invisible="1"/>
+                                <field name="bank_account_id" invisible="[('name', '=', False)]"/>
+                                <field name="state" widget="badge" invisible="[('name', '=', False)]"/>
+                            </group>
+                        </group>
+                        <notebook invisible="[('name', '=', False)]">
+                            <page string="Shipping file Moves" colspan="4">
+                                <field name="slip_move_ids">
+                                    <form create="false">
+                                        <group>
+                                            <group>
+                                                <field name="name" readonly="1" force_save="1"/>
+                                                <field name="date_maturity" readonly="1" force_save="1"/>
+                                                <field name="date" optional="hide" readonly="1" force_save="1"/>
+                                                <field name="move_code_id" readonly="1" force_save="1"/>
+                                                <field name="message" readonly="1" force_save="1"/>
+                                                <field name="slip_id" readonly="1" force_save="1"/>
+                                                <field name="cobro_cnpj_cpf" invisible="0" force_save="1"/>
+                                                <field name="cobro_partner_id" force_save="1"/>
+                                                <field name="cobro_partner_name" force_save="1"/>
+                                                <field name="cobro_invoice_number" force_save="1"/>
+                                                <field name="value" force_save="1"/>
+                                                <field name="invoice_line_id" force_save="1" readonly="[('slip_id', '=', False), ('process', '=', 'manual')]"/>
+                                            </group>
+                                            <group>
+                                                <field name="process" readonly="0"/>
+                                            </group>
+                                        </group>
+                                    </form>
+                                    <tree create="false">
+                                        <field name="name"/>
+                                        <field name="date" force_save="1" />
+                                        <field name="cobro_cnpj_cpf" force_save="1"/>
+                                        <field name="move_code_id"/>
+                                        <field name="slip_id"/>
+                                        <field name="process" widget="badge" decoration-info="process == 'manual'" decoration-success="process == 'auto'"/>
+                                    </tree>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>            
+                <!-- <field name="state" widget="badge" decoration-info="status in ('SALVO', 'BAIXADO', 'REGISTRADO')" decoration-success="status in ('EMITIDO', 'LIQUIDADO')" decoration-danger="status in ('FALHA', 'REJEITADO')" decoration-warning="status == 'PENDENTE_RETENTATIVA'" /> -->
+            </field>
+        </record>
+            
+        <record id="slip_shipping_action" model="ir.actions.act_window">
+            <field name="name">Shipping Files</field>
+            <field name="res_model">bank.slip.shipping</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <record id="bank_slip_action" model="ir.actions.act_window">
+            <field name="name">Boletos Bancários de Clientes</field>
+            <field name="res_model">bank.slip</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="bank_slip_menu" name="Boletos" parent="account.menu_finance_receivables" sequence="10"/>
+        <menuitem id="bank_slip_issued" name="Boletos Emitidos" action="bank_slip_action" parent="bank_slip_menu" sequence="1" />
+        <menuitem id="slip_shipping_menu" 
+                name="Shipping Files" 
+                action="slip_shipping_action" 
+                parent="bank_slip_menu" 
+                sequence="10" />
+
+     </data>
+</odoo>

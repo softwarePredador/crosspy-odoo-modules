@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+<record id="view_delivery_carrier_form_with_provider_correios" model="ir.ui.view">
+    <field name="name">delivery.carrier.form.provider.correios</field>
+    <field name="model">delivery.carrier</field>
+    <field name="inherit_id" ref="delivery.view_delivery_carrier_form"/>
+    <field name="arch" type="xml">
+        <xpath expr="//page[@name='destination']" position='before'>
+            <page string="Correios Configuration" name="correios_configuration"
+                 invisible="delivery_type != 'correios'">
+                <group>
+                    <group>
+                        <field name="correios_SiteID" required="delivery_type == 'correios'"/>
+                        <field name="correios_password" required="delivery_type == 'correios'"/>
+                        <field name="correios_account_number" required="delivery_type == 'correios'"/>
+                        <field name="correios_cartaopostagem" required="delivery_type == 'correios'"/>
+                        <field name="correios_codigoServicio" required="delivery_type == 'correios'"/>
+                        <field name="correios_access_token" groups="base.group_no_one"/>
+                        <field name="correios_token_valid_upto" groups="base.group_no_one"/>
+                        <!-- <field name="correios_region_code" required="delivery_type == 'correios'"/>
+                        <field name="correios_product_code" required="delivery_type == 'correios'"/> -->
+                    </group>
+                    <group>
+                        <field name="correios_default_package_type_id" required="delivery_type == 'correios'" domain="[('package_carrier_type', '=', 'correios')]"/>
+                        <field name="modalidade_frete" required="delivery_type == 'correios'"/>
+                        <!-- <field name="correios_package_weight_unit" required="delivery_type == 'correios'"/>
+                        <field name="correios_package_dimension_unit" required="delivery_type == 'correios'"/>
+                        <field name="correios_label_image_format" string="Label Format" required="delivery_type == 'correios'"/>
+                        <field name="correios_label_template" required="delivery_type == 'correios'"/> -->
+                    </group>
+                    <!-- <group string="Options">
+                        <field name="can_generate_return" invisible="1"/>
+                        <field name="return_label_on_delivery" invisible="not can_generate_return"/>
+                        <field name="get_return_label_from_portal" invisible="not return_label_on_delivery"/>
+                        <field name="correios_dutiable"/>
+                        <field name="correios_duty_payment" string='Duties paid by' invisible="not correios_dutiable" required="delivery_type == 'correios'"/>
+                    </group>
+                    <group string="Custom Data" name="correios_customs" groups="base.group_no_one">
+                        <field name="correios_custom_data_request" colspan="2" nolabel="1" placeholder="'rate': {}, 'ship': {}, 'return': {}"/>
+                    </group> -->
+                </group>
+            </page>
+        </xpath>
+    </field>
+</record>
+
+</odoo>

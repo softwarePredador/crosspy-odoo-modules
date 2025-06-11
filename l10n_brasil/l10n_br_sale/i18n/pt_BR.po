@@ -1,0 +1,265 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_br_sale
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-05-26 22:49+0000\n"
+"PO-Revision-Date: 2025-05-26 22:49+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__0
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__0
+msgid "0 - Contratação do Frete por conta do Remetente (CIF)"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__1
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__1
+msgid "1 - Contratação do Frete por conta do Destinatário (FOB)"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__2
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__2
+msgid "2 - Contratação do Frete por conta de Terceiros"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__3
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__3
+msgid "3 - Transporte Próprio por conta do Remetente"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__4
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__4
+msgid "4 - Transporte Próprio por conta do Destinatário"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__account_move__modalidade_frete__9
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__sale_order__modalidade_frete__9
+msgid "9 - Sem Ocorrência de Transporte"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.report_quotation_inherit_carrier
+msgid "<strong>Transportadora:</strong>"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_product_pricelist_item__applied_on
+msgid "Apply On"
+msgstr "Aplicar em"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.report_quotation_inherit_carrier
+msgid "CNPJ/CPF:"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_product_pricelist_item__fiscal_category_id
+#: model:ir.model.fields.selection,name:l10n_br_sale.selection__product_pricelist_item__applied_on__4_fiscal_category
+msgid "Categoria Fiscal"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "Create Invoice"
+msgstr "Criar Fatura"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order__l10n_br_expense_amount
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order_line__l10n_br_expense_amount
+msgid "Despesa"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_stock_picking__edoc_not_authorized_ids
+msgid "Edi with error"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_bank_statement_line__especie
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_move__especie
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_payment__especie
+msgid "Espécie"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order__l10n_br_delivery_amount
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order_line__l10n_br_delivery_amount
+msgid "Frete"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_move_form_l10n_br_sale
+msgid "Informações da Transportadora"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_stock_picking__invoice_not_approved_ids
+msgid "Invoices with error"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_stock_picking__is_invoice_pending
+msgid "Is Invoice pending"
+msgstr "Fatura en pendencia"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_account_move
+msgid "Journal Entry"
+msgstr "Lançamento de diário"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_bank_statement_line__modalidade_frete
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_move__modalidade_frete
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_payment__modalidade_frete
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order__modalidade_frete
+msgid "Modalidade do frete"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.constraint,message:l10n_br_sale.constraint_product_product_default_code_unique
+msgid ""
+"O produto deve ter referência interna única!\n"
+"Por favor, utilize uma referência diferente para esse produto."
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_bank_statement_line__peso_bruto
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_move__peso_bruto
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_payment__peso_bruto
+msgid "Peso Bruto"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_bank_statement_line__peso_liquido
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_move__peso_liquido
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_payment__peso_liquido
+msgid "Peso Líquido"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_stock_package_type__package_weight
+msgid "Peso da Embalagem"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_product_pricelist
+msgid "Pricelist"
+msgstr "Lista de preço"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,help:l10n_br_sale.field_product_pricelist_item__applied_on
+msgid "Pricelist Item applicable on selected option"
+msgstr "Item da lista de preços aplicável à opção selecionada"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_product_pricelist_item
+msgid "Pricelist Rule"
+msgstr "Regra de lista de preços"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_product_product
+msgid "Product Variant"
+msgstr "Variante do produto"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_bank_statement_line__quantidade_volumes
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_move__quantidade_volumes
+#: model:ir.model.fields,field_description:l10n_br_sale.field_account_payment__quantidade_volumes
+msgid "Qtde. Volumes"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_stock_picking__order_with_pending_invoice_ids
+msgid "Sale with error"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Linha do pedido de vendas"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order__l10n_br_insurance_amount
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order_line__l10n_br_insurance_amount
+msgid "Seguro"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Métodos de envio"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_stock_package_type
+msgid "Stock package type"
+msgstr "Tipo de embalagem de estoque"
+
+#. module: l10n_br_sale
+#: model:ir.model,name:l10n_br_sale.model_stock_picking
+msgid "Transfer"
+msgstr "Transferência"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_delivery_carrier__partner_id
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_move_form_l10n_br_sale
+msgid "Transportadora"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "Warning: this picking might be has not approved invoice"
+msgstr "Atenção: essa entrega não tem fatura aprovada"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "Warning: this picking might be has not authorized"
+msgstr "Atenção: essa entrega não tem Nota Fiscal autorizada"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "Warning: this picking might be has sale order not invoiced"
+msgstr "Atenção: essa entrega não tem pedido de venda faturado"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "one of those bills"
+msgstr "um destas fatura"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "one of those electronic document"
+msgstr "um destas Notas Fiscais"
+
+#. module: l10n_br_sale
+#: model_terms:ir.ui.view,arch_db:l10n_br_sale.view_picking_invoice_form
+msgid "one of those order"
+msgstr "um destes pedidos de venda"
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order_line__l10n_br_is_expense
+msgid "É Despesa?"
+msgstr ""
+
+#. module: l10n_br_sale
+#: model:ir.model.fields,field_description:l10n_br_sale.field_sale_order_line__l10n_br_is_insurance
+msgid "É Seguro?"
+msgstr ""

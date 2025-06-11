@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='utf-8'?>
+<odoo>
+    <record id="res_partner_view_form_cnpjws" model="ir.ui.view">
+        <field name="name">res.partner.form.cnpjws</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//sheet" position="before">
+                <div class="alert alert-warning mb-0" role="alert" invisible="cnpjws_situacao_cadastral == 'Ativa' or not cnpjws_situacao_cadastral">
+                    This CNPJ has the Registration Status
+                    <strong>
+                        <field name="cnpjws_situacao_cadastral" />
+                    </strong>
+                    , you may not be able to issue an Invoice.
+                </div>
+                <div class="alert alert-warning" role="alert" invisible="cnpjws_situacao_cadastral != 'Inapta'">
+                    Note: The company with registration status
+                    <strong>Inapta</strong>
+                    is one that has failed to fulfill some tax obligation.
+                </div>
+                <div class="alert alert-danger" role="alert" invisible="cnpjws_situacao_cadastral != 'Baixada'">
+                    Note: The company that has its registration in the CNPJ
+                    <strong>Baixada</strong>
+                    is the one who made this request to be granted ex officio or to the competent body.
+                </div>
+                <div class="alert alert-warning mb-0" role="alert" invisible="not cnpjws_situacao_cadastral or not cnpjws_manual_razao_social and cnpjws_size_legal_name &lt;= 60">
+                    The Social Reason contains <strong><field name="cnpjws_size_legal_name" readonly="True" /></strong> characters, and the maximum for issuing an Invoice is 60. Please make the abbreviation before proceeding with the order / billing.
+                </div>
+                <div class="alert alert-warning mb-0" role="alert" invisible="not cnpjws_situacao_cadastral or not cnpjws_manual_adress and cnpjws_size_adress &lt;= 60">
+                    The address contains <strong><field name="cnpjws_size_adress" readonly="True" /></strong> characters, and the maximum for issuing an Invoice is 60. Please make the abbreviation before proceeding with the order / billing. The character count takes into account the 3 address fields. (Street Name/Street Name, Number, Complement)
+                </div>
+            </xpath>
+            <xpath expr="//div[@name='button_box']" position="inside">
+                <button
+                    name="action_consult_cnpj"
+                    type="object"
+                    class="oe_stat_button"
+                    icon="fa-search"
+                    string="Consult CNPJ"
+                    invisible="company_type == 'person'"></button>
+            </xpath>
+            <page name="sales_purchases" position="after">
+                <page name="cnpjws" string="CNPJ Informations" invisible="not cnpjws_situacao_cadastral">
+                    <group name="cnpjws_info">
+                        <field name="cnpjws_manual_razao_social" invisible="True" readonly="True"/>
+                        <field name="cnpjws_size_legal_name" readonly="True" invisible="cnpjws_size_legal_name &lt;= 60"/>
+                        <field name="cnpjws_atualizadoem" />
+                        <field name="cnpjws_razao_social" />
+                        <field name="cnpjws_nome_fantasia" />
+                        <field name="cnpjws_tipo" />
+                        <field name="cnpjws_situacao_cadastral" />
+                        <field name="cnpjws_porte" />
+                        <field name="cnpjws_atualizado_odoo" />
+                        <field name="cnpjws_other_ies" invisible="not cnpjws_other_ies"/>
+                        <field name="cnpjws_size_adress" invisible="True" readonly="True" />
+                        <field name="cnpjws_manual_adress" invisible="True" readonly="True" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+
+    <record id="view_partner_tree_cnpjws" model="ir.ui.view">
+        <field name="name">res.partner.tree.cnpjws</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_partner_tree" />
+        <field name="arch" type="xml">
+            <field name="inscr_est" position="after">
+                <field name="cnpjws_situacao_cadastral" decoration-danger="cnpjws_situacao_cadastral == 'Baixada'" decoration-warning="cnpjws_situacao_cadastral == 'Inapta'" decoration-success="cnpjws_situacao_cadastral == 'Ativa'" widget="badge" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_partner_search_cnpjws" model="ir.ui.view">
+        <field name="name">res.partner.search.cnpjws</field>
+        <field name="model">res.partner</field>
+        <field name="inherit_id" ref="base.view_res_partner_filter" />
+        <field name="arch" type="xml">
+            <xpath expr="//filter[@name='type_company']" position="after">
+                <filter string="Registration Status Ativa" name="cnpj_ativa" domain="[('cnpjws_situacao_cadastral','=', 'Ativa')]" />
+            </xpath>
+            <xpath expr="//filter[@name='inactive']" position="after">
+                <filter string="Registration Status - Baixada" name="cnpj_baixada" domain="[('cnpjws_situacao_cadastral','=', 'Baixada')]" />
+                <filter string="Registration Status - Inapta" name="cnpj_inapta" domain="[('cnpjws_situacao_cadastral','=', 'Inapta')]" />
+                <filter string="Registration Status - Não Definida" name="cnpj_nao_definido" domain="[('cnpjws_situacao_cadastral','=', False)]" />
+                <separator />
+            </xpath>
+        </field>
+    </record>
+</odoo>

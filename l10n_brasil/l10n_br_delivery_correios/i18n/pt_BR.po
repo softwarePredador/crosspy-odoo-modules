@@ -1,0 +1,734 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_br_delivery_correios
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 17.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-03-29 01:11+0000\n"
+"PO-Revision-Date: 2025-03-29 01:11+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.actions.report,print_report_name:l10n_br_delivery_correios.action_report_declaracap_conteudo
+msgid ""
+"'Content Statement - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+"'Declaração de Conteúdo - %s - %s' % (object.partner_id.name or '', object.name)"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.actions.report,print_report_name:l10n_br_delivery_correios.action_report_simple_edoc
+msgid "'Simple DANFE - %s - %s' % (object.partner_id.name or '', object.name)"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "(document barcode)"
+msgstr "(codigo de barra do documento)"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__0
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__0
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__0
+msgid "0 - Contratação do Frete por conta do Remetente (CIF)"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__1
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__1
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__1
+msgid "1 - Contratação do Frete por conta do Destinatário (FOB)"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__2
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__2
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__2
+msgid "2 - Contratação do Frete por conta de Terceiros"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__3
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__3
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__3
+msgid "3 - Transporte Próprio por conta do Remetente"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__4
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__4
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__4
+msgid "4 - Transporte Próprio por conta do Destinatário"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__choose_delivery_carrier__modalidade_frete__9
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__modalidade_frete__9
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__res_partner__property_delivery_modalidade_frete__9
+msgid "9 - Sem Ocorrência de Transporte"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid ""
+"<br/>\n"
+"                            <span>CNPJ/CPF/ID Estrangeiro: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid ""
+"<br/>\n"
+"                            <span>CNPJ: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid ""
+"<br/>                    \n"
+"                    <span>SUMA DE IMPOSTOS:</span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span> - </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span> UN X </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span> | Nº NF-e: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span> | Série: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>Amount</span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>Data de emissão: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid ""
+"<span>Declaro que não me enquadro no conceito de contribuinte previsto no art. 4º da Lei\n"
+"Complementar nº 87/1996, uma vez que não realizo, com habitualidade ou em volume\n"
+"que caracterize intuito comercial, operações de circulação de mercadoria, ainda que\n"
+"se iniciem no exterior, ou estou dispensado da emissão da nota fiscal por força da\n"
+"legislação tributária vigente, responsabilizando-me, nos termos da lei e a quem de\n"
+"direito, por informações inverídicas.\n"
+"Declaro ainda que não estou postando conteúdo inflamável, explosivo, causador de\n"
+"combustão espontânea, tóxico, corrosivo, gás ou qualquer outro conteúdo que\n"
+"constitua perigo, conforme o art. 13 da Lei Postal nº 6.538/78.\n"
+"                </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>Description</span>"
+msgstr "<span>Descrição</span>"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>IE: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid ""
+"<span>Protocolo de autorização de uso</span>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>TIPO: </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<span>VALOR BRUTO:</span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid ""
+"<span>__________________________,____de __________________de "
+"___________</span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid ""
+"<span>________________________________</span>\n"
+"                <br/>\n"
+"                <span>Assinatura do Declarante/Remetente</span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>CEP: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>CNPJ: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>Cidade: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<strong>Company address block</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "<strong>DANFE Simplificado - Etiqueta</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>DECLARAÇÃO DE CONTEÚDO</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>DESTINATÁRIO</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>Endereço: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>IDENTIFICAÇÃO DOS BENS</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>Nome: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid ""
+"<strong>OBSERVAÇÃO: </strong>\n"
+"            <span>\n"
+"                Constitui crime contra a ordem tributária suprimir ou reduzir tributo,\n"
+"                ou contribuição social e qualquer acessório (Lei 8.137/90 Art. 1º, V).\n"
+"            </span>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>PESO TOTAL KG: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>REMETENTE</strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>UF: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "<strong>VALOR DA NOTA: </strong>"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "AWB assignment was unsuccessful: %s"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/stock_picking.py:0
+#, python-format
+msgid "All the carriers must be Correios"
+msgstr "Tudos os Metodos de Entrega debem ser correios"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "CNPJ/CPF is required!"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "CNPJ:"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+msgid "CPF:"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_stock_package_type__package_carrier_type
+msgid "Carrier"
+msgstr "Transportadora"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_sale_order__is_client_sender
+msgid "Client Sender"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.res_config_settings_view_form_sale
+msgid "Compute shipping costs and ship with Correios"
+msgstr "Calcular costo de entrega e envio con Correios"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configurações"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Configure Correios Service in shipping method"
+msgstr "Configure Servicio de Correios en Metodos de Entrega"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_res_partner
+msgid "Contact"
+msgstr "Contato"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_content_statement
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "Contains the company address."
+msgstr "Tem o endereçõ da empresa"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.actions.report,name:l10n_br_delivery_correios.action_report_declaracap_conteudo
+msgid "Content Statement"
+msgstr "Declaração de Conteúdo"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__delivery_carrier__delivery_type__correios
+#: model:ir.model.fields.selection,name:l10n_br_delivery_correios.selection__stock_package_type__package_carrier_type__correios
+msgid "Correios"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_access_token
+msgid "Correios Access Token"
+msgstr "Token de acesso a Correios"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_account_number
+msgid "Correios Account Number"
+msgstr "Nro de Contrato de Correios"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_cartaopostagem
+msgid "Correios Cartão Postagem"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.view_delivery_carrier_form_with_provider_correios
+msgid "Correios Configuration"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_codigoServicio
+msgid "Correios Código de Servicio"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Correios Error: %s"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_stock_picking__correios_orders
+msgid "Correios Order(s)"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_password
+msgid "Correios Password"
+msgstr "Correios Senha"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_res_config_settings__module_l10n_br_delivery_correios
+msgid "Correios SIGEP Connector"
+msgstr "Conetor SIGEP Correios"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.res_config_settings_view_form
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.res_config_settings_view_form_sale
+msgid "Correios Shipping Methods"
+msgstr "Metodo de Entrega Correios"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_SiteID
+msgid "Correios SiteID"
+msgstr "ID do Sitio Web Correios"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_delivery_carrier__correios_default_package_type_id
+msgid ""
+"Correios requires package dimensions for getting accurate rate, you can "
+"define these in a package type that you set as default"
+msgstr ""
+"Correios precisa das dimenções do pacote para obter o preço, pode definir os"
+" tipos de pacotes no Metodo de Entrega"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_delivery_carrier__correios_token_valid_upto
+msgid ""
+"Correios token expires in 10 days. Token will be auto generate based on this"
+" token expiry date."
+msgstr ""
+"O token de correios não sera valido en 10 días. O token sera auto gerado en "
+"este dia"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Country is required!"
+msgstr "Pais e requerido"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__modalidade_frete
+msgid "Default Fleet mode"
+msgstr "Modalidade do frete por defeito"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_choose_delivery_carrier__modalidade_frete
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_delivery_carrier__modalidade_frete
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_res_partner__property_delivery_modalidade_frete
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_res_users__property_delivery_modalidade_frete
+msgid "Default fleet mode method used in sales orders."
+msgstr "Modalidade de Frete por defeito usado nos pedidos"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_choose_delivery_carrier
+msgid "Delivery Carrier Selection Wizard"
+msgstr "Assistente de seleção de transportadora de entrega"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Email is required!"
+msgstr "Email e requerido!"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Erro no processo de registro no correios"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.view_picking_correios_label_form
+msgid "Etiquetas Correios"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid ""
+"Eway Bill number is required to ship an order if order amount is more than "
+"50,000 INR."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_choose_delivery_carrier__modalidade_frete
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_res_partner__property_delivery_modalidade_frete
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_res_users__property_delivery_modalidade_frete
+msgid "Fleet mode"
+msgstr "Modadlidade de Frete"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/wizard/choose_delivery_carrier.py:0
+#, python-format
+msgid "Fleet mode must be set"
+msgstr "Debe selecionar modalidade de frete"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_delivery_carrier__correios_access_token
+msgid "Generate access token using Correios credentials"
+msgstr "Gerar token de acesso usando credenciais de correios"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Go to Shipping Method"
+msgstr "Vai para Metodo de Engregue"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Go to Shipping Methods"
+msgstr "Vai para Metodos de Engregue"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "Hint: The destination may not require the dutiable option."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "Invalid syntax for Correios custom data."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "Label generated of %s with Tracking Number: %s"
+msgstr "Etiqueta gerada de %s com Codigo de Rastreio"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "Logo"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "Not picking to post"
+msgstr "Sem entrega que fazer"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/stock_picking.py:0
+#, python-format
+msgid "Não Existe Nota Fiscal para esta entrega..."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_default_package_type_id
+msgid "Package Type"
+msgstr "Tipo de pacote"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Phone or Mobile is required!"
+msgstr "Telefone o Celular e requerido!"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Pincode is required!"
+msgstr "Codigo CEP e requerido!"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Please configure correios credentials in the shipping method"
+msgstr "Por favor configure as credenciais no Metodo de Envio"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Please fill in the fields %s on the %s partner."
+msgstr "Por favor preencher os campor %s no %s parceiro"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.actions.server,name:l10n_br_delivery_correios.action_pre_postahem_control
+msgid "Postagem Correios"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__delivery_type
+msgid "Provider"
+msgstr "Prestador"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "SKU is missing!"
+msgstr "Falta SKU"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Sale Order or Picking is required to get rate."
+msgstr "Pedio de Venda o Entrega e requerido para obter o preço"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_sale_order
+msgid "Sales Order"
+msgstr "Pedido de venda"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid ""
+"Same order is available in correios so label provided is the copy of "
+"existing one."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_delivery_carrier
+msgid "Shipping Methods"
+msgstr "Métodos de envio"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.view_picking_correios_label_form
+msgid "Simple DANFE"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model:ir.actions.report,name:l10n_br_delivery_correios.action_report_simple_edoc
+msgid "Simple Eletronic Document"
+msgstr "Simple NFe"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_stock_package_type
+msgid "Stock package type"
+msgstr "Tipo de embalagem de estoque"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,help:l10n_br_delivery_correios.field_stock_picking__correios_orders
+msgid ""
+"Store Correios order(s) in a (+) separated string, used in cancelling the "
+"order."
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Street is required!"
+msgstr "Logradouro e requerido!"
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "Tax ID"
+msgstr "CNPJ"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid ""
+"There is no price available for this shipping, you should rather try with "
+"the Correios product %s"
+msgstr "Esta entrega não tem preço, debe tratar com o produto de correios %s"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_delivery_carrier__correios_token_valid_upto
+msgid "Token Expiry"
+msgstr "Token Expirado"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model,name:l10n_br_delivery_correios.model_stock_picking
+msgid "Transfer"
+msgstr "Transferência"
+
+#. module: l10n_br_delivery_correios
+#: model:ir.model.fields,field_description:l10n_br_delivery_correios.field_sale_order__carrier_partner_id
+msgid "Transportadora"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#: model_terms:ir.ui.view,arch_db:l10n_br_delivery_correios.report_simple_eletronic_document
+msgid "VALOR DA NOTA:"
+msgstr ""
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#: code:addons/l10n_br_delivery_correios/models/correios_request.py:0
+#, python-format
+msgid "Weight is missing!"
+msgstr "Peso e requerido!"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "You can't cancel Correios shipping without pickup date."
+msgstr "Não e possivel cancelar Entrega de Correios sem data de retiro"
+
+#. module: l10n_br_delivery_correios
+#. odoo-python
+#: code:addons/l10n_br_delivery_correios/models/delivery_carrier.py:0
+#, python-format
+msgid "You cannot delete the commercial invoice sequence."
+msgstr "Não e possivel apagar a sequencia de nota comercial"

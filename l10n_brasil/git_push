@@ -1,0 +1,25 @@
+#/bin/sh
+if [ -e "$1/__pycache__/" ]; then
+    echo "$1/__pycache__/ removed"
+    rm -r $1/__pycache__
+fi
+if [ -e "$1/models/__pycache__/" ]; then
+    echo "$1/models/__pycache__/ removed"
+    rm -r $1/models/__pycache__
+fi
+if [ -e "$1/report/__pycache__/" ]; then
+    echo "$1/report/__pycache__/ removed"
+    rm -r $1/report/__pycache__
+fi
+if [ -e "$1/wizard/__pycache__/" ]; then
+    echo "$1/wizard/__pycache__/ removed"
+    rm -r $1/wizard/__pycache__
+fi
+if [ "crosspy" == "$1" ]; then
+    git submodule update --recursive --remote
+fi
+git add $1
+git commit -m "Module $1"
+git push
+
+exit 0

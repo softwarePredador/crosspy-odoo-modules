@@ -1,0 +1,43 @@
+<odoo>
+  <record id="view_partner_form" model="ir.ui.view">
+    <field name="name">br_base.partner.form</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base.view_partner_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <button name="action_check_sefaz" type="object" class="oe_stat_button"
+          icon="fa-search" string="Consultar CNPJ SEFAZ" invisible="company_type == 'person'" groups="base.group_no_one">
+        </button>
+      </xpath>
+      <xpath expr="//field[@name='street']/parent::div" position="attributes">
+        <attribute name="class"/>
+      </xpath>
+      <xpath expr="//field[@name='street']" position="attributes">
+        <attribute name="readonly">True</attribute>
+        <attribute name="class">o_address_street text-secondary</attribute>
+      </xpath>
+      <xpath expr="//field[@name='street']" position="after">
+        <div class="o_row">
+            <field name="street_name" placeholder="Street" style="flex: 3 1 auto"
+                    readonly="type == 'contact' and parent_id"/>
+            <span> </span>
+            <field name="street_number" placeholder="House #" style="flex: 1 1 auto"
+                    readonly="type == 'contact' and parent_id"/>
+            <span> - </span>
+            <field name="street_number2" placeholder="Door #" style="flex: 1 1 auto"
+                    readonly="type == 'contact' and parent_id"/>
+        </div>
+      </xpath>
+    </field>
+  </record>
+  <!-- <record id="address_street_extended_edit_form" model="ir.ui.view">
+    <field name="name">partner.form.address.extended.edit</field>
+    <field name="model">res.partner</field>
+    <field name="inherit_id" ref="base_address_extended.address_street_extended_form" />
+    <field name="arch" type="xml">
+      <xpath expr="//field[@name='street_name']/parent::div" position="attributes">
+        <attribute name="class">o_row</attribute>
+      </xpath>
+    </field>
+  </record> -->
+</odoo>

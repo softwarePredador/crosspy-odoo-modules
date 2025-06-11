@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+
+    <record id="l10n_br_base_res_partner_address" model="ir.ui.view">
+        <field name="name">l10n_br_base.res.partner.address</field>
+        <field name="model">res.partner</field>
+        <field name="priority">999</field>
+        <field name="arch" type="xml">
+            <form>
+                <div class="o_address_format">
+                    <field name="country_enforce_cities" invisible="1"/>
+                    <field name="parent_id" invisible="1"/>
+                    <field name="type" invisible="1"/>
+                    <field name="street" placeholder="Street..." class="o_address_street"
+                           readonly="type == 'contact' and parent_id"/>
+                    <field name="street2" placeholder="Street 2..." class="o_address_street"
+                           readonly="type == 'contact' and parent_id"/>
+                    <field name="district" placeholder="District..."/>
+                    <field name="city_id"
+                           placeholder="City"
+                           class="o_address_city"
+                           domain="[('country_id', '=', country_id)]"
+                           invisible="not country_enforce_cities"
+                           readonly="type == 'contact' and parent_id"
+                           context="{'default_country_id': country_id, 'default_state_id': state_id, 'default_zipcode': zip}"/>
+                    <field name="city"
+                           placeholder="City"
+                           class="o_address_city"
+                           invisible="country_enforce_cities or (city_id or city in ('', False))"
+                           readonly="type == 'contact' and parent_id"/>
+                    <field name="state_id"
+                           class="o_address_state"
+                           placeholder="State"
+                           readonly="type == 'contact' and parent_id"
+                           options="{'no_open': True, 'no_quick_create': True}"
+                           context="{'default_country_id': country_id}"/>
+                    <field name="zip" placeholder="ZIP" class="o_address_zip"
+                           readonly="type == 'contact' and parent_id"/>
+                    <field name="country_id"
+                           placeholder="Country"
+                           class="o_address_country"
+                           readonly="type == 'contact' and parent_id"
+                           options="{'no_open': True, 'no_create': True}"/>
+                </div>
+            </form>
+        </field>
+    </record>
+</odoo>

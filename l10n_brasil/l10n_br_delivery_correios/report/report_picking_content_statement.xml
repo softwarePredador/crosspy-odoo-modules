@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <template id="report_content_statement">
+    <t t-call="web.basic_layout">
+        <t t-set="layout" t-value="'web.external_layout_boxed' or 'web.external_layout_standard'"/>
+
+        <t t-if="not o" t-set="o" t-value="doc"/>
+
+        <t t-if="not company">
+            <!-- Multicompany -->
+            <t t-if="company_id">
+                <t t-set="company" t-value="company_id"/>
+            </t>
+            <t t-elif="o and 'company_id' in o and o.company_id.sudo()">
+                <t t-set="company" t-value="o.company_id.sudo()"/>
+            </t>
+            <t t-else="else">
+                <t t-set="company" t-value="res_company"/>
+            </t>
+        </t>
+        <style>
+            .custom-border {
+                padding: 5px;
+                border: 1px solid black; /* Adds a dashed separator */
+                font-size: 0.6em"
+            }
+            .custom-border table{
+                width: 100%; 
+            }
+        </style>
+
+        <t t-foreach="docs" t-as="o">
+
+            <!-- Línea divisoria inicio-->
+            <!--div class="row zero_min_height">
+                <div class="col-12" style="margin-top: 30px;">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div-->
+            <!-- Línea divisoria fin-->               
+            <div class="row">
+                <div class="col-12 text-center" style="font-size: 1.2em; padding-top: 10px;">
+                    <p>
+                        <strong>DECLARAÇÃO DE CONTEÚDO</strong>
+                        <t t-if="o.carrier_tracking_ref" t-esc="' - {}'.format(o.carrier_tracking_ref)"/>
+                    </p>
+                </div>
+            </div>
+            <!-- Línea divisoria inicio-->
+            <!--div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div-->
+            <!-- Línea divisoria fin-->
+            <div class="row">
+                <div class="col-6 mb-2 mt-2" name="company_address">
+                    <t t-if="company.is_company_details_empty"><span t-field="company.partner_id"/>
+                        <div class="bg-light border-1 rounded h-100 d-flex flex-column align-items-center justify-content-center p-4 w-100 opacity-75 text-muted text-center">
+                            <strong>Company address block</strong>
+                            <div>Contains the company address.</div>
+                        </div>
+                    </t>
+                    <t t-else="">
+                        <table class="table table-sm table-bordered w-100" style="font-size: 9px; border: 1px solid black;">
+                        <tr class="text-center">
+                            <td colspan="3" style="font-size: 10px;"><strong>REMETENTE</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            <strong>Nome: </strong>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.legal_name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            <strong>Endereço: </strong>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.street"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.street2"/>
+                            <t t-if="company.partner_id.district">
+                                <br/>
+                                <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.district"/>
+                            </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-10" colspan="2">
+                                <strong>Cidade: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-esc="'{}'.format(company.partner_id.city_id and company.partner_id.city_id.name or company.city)"/>
+                            </td><td class="col-2">
+                                <strong>UF: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-esc="'{}'.format(company.partner_id.state_id.code)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-5">
+                                <strong>CEP: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.zip"/>
+                            </td><td class="col-7" colspan="2">
+                                <strong>CNPJ: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-field="company.partner_id.vat"/>
+                            </td>
+                        </tr>
+                        </table>
+                    </t>
+                </div>
+                <div class="col-6 mb-2 mt-2" name="partner_address">
+                    <table class="table table-bordered table-sm w-100" style="font-size: 9px; border: 1px solid black;">
+                        <tr class="text-center">
+                            <td colspan="3" style="font-size: 10px;"><strong>DESTINATÁRIO</strong></td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            <strong>Nome: </strong>
+                            <span t-att-style="'line-height: 10px;'" t-esc="o.partner_id.legal_name or o.partner_id.name"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="3">
+                            <strong>Endereço: </strong>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.street"/>
+                            <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.street2"/>
+                            <t t-if="o.partner_id.district">
+                                <br/>
+                                <span t-att-style="'line-height: 10px;'" t-field="o.partner_id.district"/>
+                            </t>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-10" colspan="2">
+                                <strong>Cidade: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-esc="'{}'.format(o.partner_id.city_id and o.partner_id.city_id.name or o.city)"/>
+                            </td><td class="col-2">
+                                <strong>UF: </strong>
+                                <span t-att-style="'line-height: 10px;'" t-esc="'{}'.format(o.partner_id.state_id.code)"/>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="col-5">
+                                <strong>CEP: </strong>
+                                <span t-field="o.partner_id.zip"/>
+                            </td><td class="col-7" colspan="2">
+                                <strong t-if="o.partner_id.is_company">CNPJ: </strong>
+                                <strong t-if="not o.partner_id.is_company">CPF: </strong>
+                                <span t-field="o.partner_id.vat"/>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+            <!--div t-if="company.logo or company.report_header" class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div>
+            <div class="row">
+            </div-->
+            
+            <t t-set="o" t-value="o.with_context(lang=lang)"/>
+            <!-- Línea divisoria inicio-->
+            <!--div class="oe_structure"/-->
+            <div style="height: 260px; overflow: auto;">
+            <table class="table table-sm" name="document_line_ids" style="border: 1px solid black; border-collapse: collapse;">
+                <thead style="font-size: 0.7em; border: 0">
+                    <tr>
+                        <th colspan="2">
+                        <div class="text-center" style="font-size: 0.9em">
+                            <strong>IDENTIFICAÇÃO DOS BENS</strong>
+                        </div>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th name="th_description" class="text-start"><span>Description</span></th>
+                        <!--th name="th_quantity" class="text-end"><span>Quantity</span></th>
+                        <th name="th_priceunit" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}"><span>Unit Price</span></th-->
+                        <th name="th_subtotal" class="text-end"><span>Amount</span></th>
+                    </tr>
+                </thead>
+                <tbody class="invoice_tbody" style="font-size: 0.6em; border: 0">
+                    <t t-set="current_weight" t-value="0"/>
+                    <t t-set="current_total" t-value="0"/>
+                    
+                    <t t-foreach="o.move_ids" t-as="line">
+                        <tr style="margin-bottom: 0; padding-bottom: 0">
+                            <td name="account_invoice_line_name">
+                                <span t-if="line.name" t-field="line.name" t-options="{'widget': 'text'}"/>
+                                <!-- Código nuevo inicio-->
+                                <span> - </span>
+                                <span t-field="line.product_uom_qty"/>
+                                <span> UN X </span>
+                                <span t-field="line.sale_line_id.price_reduce_taxinc" class="text-nowrap"/>
+                                <!-- Código nuevo fin-->
+                            </td>
+                            <!--td name="td_quantity" class="text-end">
+                                <span t-field="line.quantidade">3.00</span>
+                                <span t-field="line.product_id.uom_id" groups="uom.group_uom">units</span>
+                            </td>
+                            <td name="td_price_unit" t-attf-class="text-end {{ 'd-none d-md-table-cell' if report_type == 'html' else '' }}">
+                                <span class="text-nowrap" t-field="line.preco_unitario">9.00</span>
+                            </td-->
+                            <!-- Código nuevo inicio-->
+                            <t t-set="valor_bruto" t-value="line.product_uom_qty * line.sale_line_id.price_reduce_taxinc"/>
+                            <t t-set="peso_bruto" t-value="line.product_uom_qty * line.product_id.weight"/>
+                            <t t-set="current_total" t-value="current_total + valor_bruto"/>
+                            <t t-set="current_weight" t-value="current_weight + peso_bruto"/>
+                            
+                            <td name="td_amount" class="text-end">
+                                <span class="text-nowrap" t-esc="'{:.2f}'.format(valor_bruto)"/>
+                            </td>
+                            <!-- Código nuevo fin-->
+                        </tr>
+                    </t>
+                </tbody>
+                <tfoot style="font-size: 0.7em; border: 0">
+                                        <!--span>VALOR BRUTO:</span>
+                    <span style="float: right" t-esc="valor_bruto" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}"/>
+                    <br/-->
+                    <tr>
+                        <td>
+                            <strong>VALOR DA NOTA: </strong>
+                        </td>
+                        <td>
+                            <span style="float: right" t-esc="current_total" t-options="{'widget': 'monetary', 'display_currency': company.currency_id}"/>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <strong>PESO TOTAL KG: </strong>
+                        </td>
+                        <td>
+                            <span style="float: right" t-esc="'{:.3f}'.format(current_weight)"/>
+                        </td>
+                    </tr>
+                </tfoot>
+            </table>
+            </div>
+            <!-- Código nuevo inicio-->
+            <!--t t-set="suma_impuestos" t-value="o.valor_icms + o.valor_ipi + o.pis_valor + o.cofins_valor"/-->
+            <!--div class="row zero_min_height">
+                <div class="col-12">
+                    <div style="border-bottom: 1px solid black;"/>
+                </div>
+            </div-->
+            <div>
+                <div class="col-12" style="font-size: 0.7em">
+                </div>
+            </div>
+            <div class="row" style="font-size: 0.5em">
+                <span>Declaro que não me enquadro no conceito de contribuinte previsto no art. 4º da Lei
+Complementar nº 87/1996, uma vez que não realizo, com habitualidade ou em volume
+que caracterize intuito comercial, operações de circulação de mercadoria, ainda que
+se iniciem no exterior, ou estou dispensado da emissão da nota fiscal por força da
+legislação tributária vigente, responsabilizando-me, nos termos da lei e a quem de
+direito, por informações inverídicas.
+Declaro ainda que não estou postando conteúdo inflamável, explosivo, causador de
+combustão espontânea, tóxico, corrosivo, gás ou qualquer outro conteúdo que
+constitua perigo, conforme o art. 13 da Lei Postal nº 6.538/78.
+                </span>
+            </div>
+            <br/>
+            <br/>
+            <div class="text-center" style="font-size: 0.5em">
+                <span>__________________________,____de __________________de ___________</span>
+            </div>
+            <br/>
+            <br/>
+            <div class="text-center" style="font-size: 0.5em">
+                <span>________________________________</span>
+                <br/>
+                <span>Assinatura do Declarante/Remetente</span>
+            </div>
+            <div class="row" style="font-size: 0.5em">
+            <strong>OBSERVAÇÃO: </strong>
+            <span>
+                Constitui crime contra a ordem tributária suprimir ou reduzir tributo,
+                ou contribuição social e qualquer acessório (Lei 8.137/90 Art. 1º, V).
+            </span>
+            </div>
+            <!-- Línea divisoria inicio-->
+        </t>
+            <!-- Línea divisoria fin--> 
+    </t>
+        </template>
+    </data>
+</odoo>

@@ -1,0 +1,326 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* l10n_br_consulta_cnpj
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2022-11-17 14:52+0000\n"
+"PO-Revision-Date: 2022-11-17 13:50-0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"X-Generator: Poedit 3.2.1\n"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid ", you may not be able to issue an Invoice."
+msgstr ", talvez você não consiga emitir uma fatura."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_size_adress
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_size_adress
+msgid "Address size"
+msgstr "Tamanho do endereço"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid "CNPJ Informations"
+msgstr "Informações do CNPJ"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_tipo
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_tipo
+msgid "CNPJ Type"
+msgstr "Tipo de CNPJ"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpj_cpf
+msgid "CNPJ/CPF"
+msgstr "CNPJ/CPF"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__city_id
+msgid "City of Address"
+msgstr "Cidade"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_porte
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_porte
+msgid "Company size"
+msgstr "Porte da Empresa"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid "Consult CNPJ"
+msgstr "Consultar CNPJ"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model,name:l10n_br_consulta_cnpj.model_res_partner
+msgid "Contact"
+msgstr "Contato"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__country_id
+msgid "Country"
+msgstr "País"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_partner__cnpjws_atualizado_odoo
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_users__cnpjws_atualizado_odoo
+msgid "Date of last update of information on Odoo"
+msgstr "Data da última atualização das informações no Odoo"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_partner__cnpjws_atualizadoem
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_users__cnpjws_atualizadoem
+msgid "Date of the last update of information in the public database"
+msgstr "Data da última atualização das informações no banco de dados público"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__display_name
+msgid "Display Name"
+msgstr "Nome de Exibição"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__district
+msgid "District"
+msgstr "Bairro"
+
+#. module: l10n_br_consulta_cnpj
+#: code:addons/l10n_br_consulta_cnpj/models/res_partner.py:0
+#, python-format
+msgid "Error to include CNAE Main %s.subclasse"
+msgstr "Erro ao incluir CNAE Principal %s.subclasse"
+
+#. module: l10n_br_consulta_cnpj
+#: code:addons/l10n_br_consulta_cnpj/models/res_partner.py:0
+#, python-format
+msgid ""
+"Error: titulo\n"
+"detalhes\n"
+"If the company is from Brazil, enter the correct CNPJ. Otherwise, complete "
+"the registration manually."
+msgstr ""
+"Error: titulo\n"
+"detalhes\n"
+"Se a empresa for do Brasil, insira o CNPJ correto. Caso contrário, complete "
+"o registro manualmente."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_nome_fantasia
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_nome_fantasia
+msgid "Fantasy name"
+msgstr "Nome Fantasia"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_razao_social
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_razao_social
+msgid "Full Legal Name"
+msgstr "Razão Social"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__id
+msgid "ID"
+msgstr "ID"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_partner__cnpjws_manual_adress
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_users__cnpjws_manual_adress
+msgid ""
+"If this option is checked, it means that the Address is longer than 60 "
+"characters and you need to manually adjust it."
+msgstr ""
+"Se esta opção estiver marcada, significa que o Endereço tem mais de 60 "
+"caracteres e você precisa ajustá-lo manualmente."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_partner__cnpjws_manual_razao_social
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_users__cnpjws_manual_razao_social
+msgid ""
+"If this option is checked, it means that the Corporate Name is longer than "
+"60 characters and you need to manually adjust it."
+msgstr ""
+"Se esta opção estiver marcada, significa que a Razão Social tem mais de 60 "
+"caracteres e você precisa ajustá-lo manualmente."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner____last_update
+msgid "Last Modified on"
+msgstr "Última modificação em"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__legal_name
+msgid "Legal Name"
+msgstr "Razão Social"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_size_legal_name
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_size_legal_name
+msgid "Legal Name Size"
+msgstr "Tamanho da Razão Social"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__inscr_mun
+msgid "Municipal Tax Number"
+msgstr "Inscrição Municipal"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_manual_adress
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_manual_adress
+msgid "Needs adjustment Address"
+msgstr "Precisa de Ajuste no Endereço"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_manual_razao_social
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_manual_razao_social
+msgid "Needs adjustment Legal Name"
+msgstr "Precisa de Ajuste na Razão Social"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid ""
+"Note: The company that has its registration in the CNPJ\n"
+"                    <strong>Baixada</strong>\n"
+"                    is the one who made this request to be granted ex "
+"officio or to the competent body."
+msgstr ""
+"Obs: A empresa que possui seu registro no CNPJ\n"
+"                     <strong>Baixada</strong>\n"
+"                     é quem fez este pedido para ser deferido de ofício ou "
+"ao órgão competente."
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid ""
+"Note: The company with registration status\n"
+"                    <strong>Inapta</strong>\n"
+"                    is one that has failed to fulfill some tax obligation."
+msgstr ""
+"Nota: A empresa com status de registro\n"
+"                     <strong>Inapta</strong>\n"
+"                     é aquele que deixou de cumprir alguma obrigação "
+"tributária."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_other_ies
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_other_ies
+msgid "Other IEs"
+msgstr "Outras Inscrições Estaduais"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__state_tax_number_ids
+msgid "Others State Tax Number"
+msgstr "Outras Inscrições Estaduais"
+
+#. module: l10n_br_consulta_cnpj
+#: code:addons/l10n_br_consulta_cnpj/models/res_partner.py:0
+#, python-format
+msgid "Please enter the CNPJ."
+msgstr "Por favor informe o CNPJ."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_atualizadoem
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_atualizadoem
+msgid "Public data in"
+msgstr "Dados públicos em"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__rg
+msgid "RG"
+msgstr "RG"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_situacao_cadastral
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_situacao_cadastral
+msgid "Registration Status"
+msgstr "Situação Cadastral"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.view_partner_search_cnpjws
+msgid "Registration Status - Baixada"
+msgstr "Situação Cadastral - Baixada"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.view_partner_search_cnpjws
+msgid "Registration Status - Inapta"
+msgstr "Situação Cadastral - Inapta"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.view_partner_search_cnpjws
+msgid "Registration Status - Não Definida"
+msgstr "Situação Cadastral - Não Definida"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.view_partner_search_cnpjws
+msgid "Registration Status Ativa"
+msgstr "Situação Cadastral Ativa"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__inscr_est
+msgid "State Tax Number"
+msgstr "Número da Inscrição Estadual"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__suframa
+msgid "Suframa"
+msgstr "Suframa"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid "The Social Reason contains"
+msgstr "A Razão Social contém"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid "The address contains"
+msgstr "O Endereço contém"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid "This CNPJ has the Registration Status"
+msgstr "O CNPJ com a Situação Cadastral"
+
+#. module: l10n_br_consulta_cnpj
+#: code:addons/l10n_br_consulta_cnpj/models/res_partner.py:0
+#, python-format
+msgid "This option is only available for companies."
+msgstr "Esta opção está disponível apenas para empresas."
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_partner__cnpjws_atualizado_odoo
+#: model:ir.model.fields,field_description:l10n_br_consulta_cnpj.field_res_users__cnpjws_atualizado_odoo
+msgid "Updated on Odoo"
+msgstr "Atualizado no Odoo"
+
+#. module: l10n_br_consulta_cnpj
+#: model:ir.model.fields,help:l10n_br_consulta_cnpj.field_res_partner__legal_name
+msgid "Used in fiscal documents"
+msgstr "Usado em documentos fiscais"
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid ""
+"characters, and the maximum for issuing an Invoice is 60. Please make the "
+"abbreviation before proceeding with the order / billing."
+msgstr ""
+"caracteres, sendo que o máximo para emissão de Nota Fiscal é de 60. Por "
+"favor, faça a abreviação antes de prosseguir com o pedido/faturamento."
+
+#. module: l10n_br_consulta_cnpj
+#: model_terms:ir.ui.view,arch_db:l10n_br_consulta_cnpj.res_partner_view_form_cnpjws
+msgid ""
+"characters, and the maximum for issuing an Invoice is 60. Please make the "
+"abbreviation before proceeding with the order / billing. The character count "
+"takes into account the 3 address fields. (Street Name/Street Name, Number, "
+"Complement)"
+msgstr ""
+"caracteres, sendo que o máximo para emissão de Nota Fiscal é de 60. Por "
+"favor, faça a abreviação antes de prosseguir com o pedido/faturamento. A "
+"contagem de caracteres leva em consideração os 3 campos de endereço. (Nome "
+"da Rua, Número, Complemento)"
